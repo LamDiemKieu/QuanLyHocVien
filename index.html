@@ -35,6 +35,7 @@
           <div class="headerLogo"><a href="#">Academy</a></div>
           <div class="search">
             <input type="text" placeholder="Tìm kiếm...," id="timKiem" />
+            <i class="fa-solid fa-magnifying-glass"></i>
           </div>
           <div class="sort">
             <select name="" id="sortDoiTuong"></select>
@@ -117,26 +118,46 @@
             <div id="sinhVien" class="none">
               <div class="formItem">
                 <i id="tbIconToan" class="fa-solid fa-square-root-variable"></i>
-                <input type="text" id="toan" placeholder="Điểm toán" />
+                <input
+                  type="text"
+                  id="toan"
+                  placeholder="Điểm toán"
+                  onchange="checkDiem('toan', 'checkDiemToan')"
+                />
               </div>
               <span class="checkValid" id="checkDiemToan"></span>
 
               <div class="formItem">
                 <i id="tbIconLy" class="fa-solid fa-tractor"></i>
-                <input type="text" id="ly" placeholder="Điểm lý" />
+                <input
+                  type="text"
+                  id="ly"
+                  placeholder="Điểm lý"
+                  onchange="checkDiem('ly', 'checkDiemLy')"
+                />
               </div>
               <span class="checkValid" id="checkDiemLy"></span>
 
               <div class="formItem">
                 <i id="tbIconHoa" class="fa-solid fa-flask-vial"></i>
-                <input type="text" id="hoa" placeholder="Điểm hóa" />
+                <input
+                  type="text"
+                  id="hoa"
+                  placeholder="Điểm hóa"
+                  onchange="checkDiem('hoa', 'checkDiemHoa')"
+                />
               </div>
               <span class="checkValid" id="checkDiemHoa"></span>
             </div>
             <div id="nhanVien" class="none">
               <div class="formItem">
                 <i id="tbIconNgayLam" class="fa-solid fa-calendar-days"></i>
-                <input type="text" id="soNgayLam" placeholder="Số ngày làm" />
+                <input
+                  type="text"
+                  id="soNgayLam"
+                  placeholder="Số ngày làm"
+                  onchange="checkSoNgayLam('soNgayLam', 'checkSoNgayLam')"
+                />
               </div>
               <span class="checkValid" id="checkSoNgayLam"></span>
 
@@ -149,16 +170,22 @@
                   type="text"
                   id="luongNgay"
                   placeholder="Tiền lương mỗi ngày"
+                  onchange="checkTienLuong('luongNgay', 'checkLuongNgay')"
                 />
               </div>
-              <span class="checkValid" id="checkTinLuongMoiNgay"></span>
+              <span class="checkValid" id="checkLuongNgay"></span>
             </div>
             <div id="khachHang" class="none">
               <div class="formItem">
                 <i id="tbIconTenCty" class="fa-solid fa-building"></i>
-                <input type="text" id="tenCty" placeholder="Tên công ty" />
+                <input
+                  type="text"
+                  id="tenCty"
+                  placeholder="Tên công ty"
+                  onchange="checkTen('tenCty', 'checkTenCTy')"
+                />
               </div>
-              <span class="checkValid" id="checkTenCongTy"></span>
+              <span class="checkValid" id="checkTenCTy"></span>
 
               <div class="formItem">
                 <i class="fa-solid fa-file-invoice-dollar"></i>
@@ -166,9 +193,10 @@
                   type="text"
                   id="giaTriHd"
                   placeholder="Giá trị hóa đơn"
+                  onchange="checkTienLuong('giaTriHd', 'checkGiaTriHd')"
                 />
               </div>
-              <span class="checkValid" id="checkGiaTriHoaDon"></span>
+              <span class="checkValid" id="checkGiaTriHd"></span>
             </div>
             <div class="formBtn">
               <button type="button" id="luuDoiTuongMoi">Thêm</button>

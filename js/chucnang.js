@@ -444,7 +444,7 @@ export default class ChucNang {
     document.getElementById("tBody").innerHTML = content;
   };
 
-  //BỎ DẤU TIẾNG VIỆT
+  // BỎ DẤU TIẾNG VIỆT
   boDauTiengViet = (str) => {
     const mauText = {
       à: "a",

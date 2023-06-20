@@ -38,7 +38,6 @@ export default class CheckInput {
       let mauRegexEmail =
         /^[^\s@áàảãạăắằẳẵặâấầẩẫậđéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵ]+@[^\s@áàảãạăắằẳẵặâấầẩẫậđéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵ]+\.[^\s@áàảãạăắằẳẵặâấầẩẫậđéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵ]+$/i;
       let mailHopLe = mauRegexEmail.test(regexEmail);
-      console.log(mailHopLe);
 
       if (mailHopLe == true) {
         document.getElementById(thongBao).innerHTML = "";
@@ -103,6 +102,23 @@ export default class CheckInput {
         }
       } else {
         document.getElementById(thongBao).innerHTML = "Vui lòng nhập ký tự số";
+      }
+    }
+  };
+  checkTienLuong = (id, thongBao) => {
+    let regexLuong = document.getElementById(id).value * 1;
+    if (regexLuong == "") {
+      document.getElementById(thongBao).innerHTML = "Vui lòng nhập trường này";
+      return false;
+    } else {
+      let chiLaySo = /[0-9]/g;
+      let luongHopLe = chiLaySo.test(regexLuong);
+      if (luongHopLe) {
+        document.getElementById(thongBao).innerHTML = "";
+        return true;
+      } else {
+        document.getElementById(thongBao).innerHTML = "Vui lòng nhập ký tự số";
+        return false;
       }
     }
   };

@@ -37,11 +37,15 @@ header {
     align-items: center;
     padding: 30px;
     .headerLogo {
+      transition: all 0.7s;
       a {
         text-decoration: none;
         color: green;
         font-size: 30px;
         font-weight: bold;
+      }
+      &:hover {
+        transform: scale(1.5);
       }
     }
     .search {
@@ -49,6 +53,10 @@ header {
         height: 30px;
         width: 400px;
         padding: 0 10px;
+      }
+      i {
+        color: orangered;
+        cursor: pointer;
       }
     }
     .sort select {
@@ -76,8 +84,6 @@ header {
 main {
   .formContent {
     width: 500px;
-    // margin: 0 auto;
-    // height: 440px;
     padding: 20px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     transition: all 0.5s;

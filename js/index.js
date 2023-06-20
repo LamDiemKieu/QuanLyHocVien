@@ -23,6 +23,7 @@ document.getElementById("themMoi").addEventListener("click", () => {
   document.getElementById("ma").disabled = false;
   document.getElementById("ketQua").innerHTML = "";
 });
+
 document.getElementById("overlay").addEventListener("click", () => {
   chucNang.tatMoForm();
 });
@@ -30,7 +31,7 @@ document.getElementById("overlay").addEventListener("click", () => {
 document.getElementById("closer").addEventListener("click", () => {
   chucNang.tatMoForm();
 });
-//
+
 document.getElementById("doiTuong").addEventListener("change", () => {
   let mySelect = document.getElementById("doiTuong").value;
   if (mySelect == "sinh viên") {
@@ -58,15 +59,21 @@ document.getElementById("luuDoiTuongMoi").addEventListener("click", () => {
     let valid = true;
     valid =
       checkInput.checkMa("ma", "checkMa") &
-      checkInput.checkMa("ten", "checkTen") &
+      checkInput.checkTen("ten", "checkTen") &
       checkInput.checkEmail("email", "checkEmail") &
       checkInput.checkDiaChi("diaChi", "checkDiaChi") &
-      checkInput.checkMa("doiTuong", "checkDoiTuong");
+      checkInput.checkMa("doiTuong", "checkDoiTuong") &
+      checkInput.checkDiem("toan", "checkDiemToan") &
+      checkInput.checkDiem("ly", "checkDiemLy") &
+      checkInput.checkDiem("hoa", "checkDiemHoa") &
+      checkInput.checkSoNgayLam("soNgayLam", "checkSoNgayLam") &
+      checkInput.checkTienLuong("luongNgay", "checkLuongNgay") &
+      checkInput.checkTen("tenCty", "checkTenCTy") &
+      checkInput.checkTienLuong("giaTriHd", "checkGiaTriHd");
 
     if (!valid) {
       return;
     }
-
     return;
   } else {
     let personInputs = document.querySelectorAll(
@@ -86,17 +93,16 @@ document.getElementById("luuDoiTuongMoi").addEventListener("click", () => {
         }
         sinhVien[id] = value;
       }
-
       let valid = true;
       valid =
         checkInput.checkMa("ma", "checkMa") &
-        checkInput.checkMa("ten", "checkTen") &
+        checkInput.checkTen("ten", "checkTen") &
         checkInput.checkEmail("email", "checkEmail") &
         checkInput.checkDiaChi("diaChi", "checkDiaChi") &
-        checkInput.checkMa("doiTuong", "checkDoiTuong");
-
-      console.log(valid);
-
+        checkInput.checkMa("doiTuong", "checkDoiTuong") &
+        checkInput.checkDiem("toan", "checkDiemToan") &
+        checkInput.checkDiem("ly", "checkDiemLy") &
+        checkInput.checkDiem("hoa", "checkDiemHoa");
       if (!valid) {
         return;
       }
@@ -114,16 +120,19 @@ document.getElementById("luuDoiTuongMoi").addEventListener("click", () => {
         }
         nhanVien[id] = value;
       }
+      let valid = true;
       valid =
         checkInput.checkMa("ma", "checkMa") &
-        checkInput.checkMa("ten", "checkTen") &
+        checkInput.checkTen("ten", "checkTen") &
         checkInput.checkEmail("email", "checkEmail") &
         checkInput.checkDiaChi("diaChi", "checkDiaChi") &
-        checkInput.checkMa("doiTuong", "checkDoiTuong");
-
+        checkInput.checkMa("doiTuong", "checkDoiTuong") &
+        checkInput.checkSoNgayLam("soNgayLam", "checkSoNgayLam") &
+        checkInput.checkTienLuong("luongNgay", "checkLuongNgay");
       if (!valid) {
         return;
       }
+
       chucNang.themDoiTuong(nhanVien);
     } else if (mySelect == "khách hàng") {
       let inputKhachHang = document.querySelectorAll(
@@ -139,16 +148,18 @@ document.getElementById("luuDoiTuongMoi").addEventListener("click", () => {
         }
         khachHang[id] = value;
       }
+      let valid = true;
       valid =
         checkInput.checkMa("ma", "checkMa") &
-        checkInput.checkMa("ten", "checkTen") &
+        checkInput.checkTen("ten", "checkTen") &
         checkInput.checkEmail("email", "checkEmail") &
         checkInput.checkDiaChi("diaChi", "checkDiaChi") &
-        checkInput.checkMa("doiTuong", "checkDoiTuong");
-
+        checkInput.checkMa("doiTuong", "checkDoiTuong") &
+        checkInput.checkTen("tenCty", "checkTenCTy") &
+        checkInput.checkTienLuong("giaTriHd", "checkGiaTriHd");
       if (!valid) {
         return;
-      }   
+      }
 
       chucNang.themDoiTuong(khachHang);
     }
@@ -243,4 +254,13 @@ window.checkDiaChi = (id, thongBao) => {
 };
 window.checkDoiTuong = (id, thongBao) => {
   checkInput.checkMa(id, thongBao);
+};
+window.checkDiem = (id, thongBao) => {
+  checkInput.checkDiem(id, thongBao);
+};
+window.checkSoNgayLam = (id, thongBao) => {
+  checkInput.checkSoNgayLam(id, thongBao);
+};
+window.checkTienLuong = (id, thongBao) => {
+  checkInput.checkTienLuong(id, thongBao);
 };
